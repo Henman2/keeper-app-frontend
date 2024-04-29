@@ -1,0 +1,18 @@
+/*Header*/
+header {
+    background-color: #7f9fe4;
+    margin: 0 auto;
+    padding: 16px 32px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    align-content: center;
+    text-align: center;
+}
+
+header h1 {
+    color: #fff;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+}
+main{
+    padding: 0 16px;
+}

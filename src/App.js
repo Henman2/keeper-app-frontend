@@ -5,17 +5,13 @@ import './styles/App.css';
 
 const App = ()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Header/>
-      </header>
-      <main>
-        <HomePage />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+      <div className="App">
+          <Header/>
+          <main>
+              <HomePage/>
+          </main>
+          <Footer/>
+      </div>
   );
 }
 

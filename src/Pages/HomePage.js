@@ -1,6 +1,7 @@
+import NotesList from "../components/NotesList";
 const HomePage = () => {
     return (
-        <h1>Keeper App Home</h1>
+        <NotesList />
     );
 }
 export default HomePage;

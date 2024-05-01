@@ -1,6 +1,6 @@
-import notes from "../shared/notelist";
+
 import Note from "./Note";
-const NotesList= ()=>{
+const NotesList= ({notes})=>{
     return(
         <div>
             {notes.map((note, index)=>{

@@ -6,6 +6,9 @@
 html {
     font-family: "Montserrat", sans-serif;
 }
+:root{
+    --main-color: #2d6a4f;
+}
 body {
     background: #eee url("../shared/images/black-thread-light.png");
 }

@@ -1,8 +1,8 @@
 /*Header*/
 header {
-    background-color: #7f9fe4;
+    background-color: var(--main-color);
     margin: 0 auto;
-    padding: 16px 32px;
+    padding: 18px 32px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     align-content: center;
     text-align: center;
@@ -30,9 +30,11 @@ main{
 .note h2 {
     font-size: 1.2em;
     margin-bottom: 6px;
+    color: var(--main-color);
+    text-align: center;
 }
 .note p {
-    font-size: 1.1em;
+    font-size: 1em;
     margin-bottom: 10px;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -41,13 +43,46 @@ main{
     position: relative;
     float: right;
     margin-right: 10px;
-    background: #7f9fe4;
+    background: var(--main-color);
     color: #fff;
     border: none;
     bottom: -25px;
     border-radius: 50%;
     width: 36px;
     height: 36px;
+    cursor: pointer;
+    outline: none;
+}
+form.create-note {
+    position: relative;
+    width: 480px;
+    margin: 30px auto 20px auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+form.create-note input,
+form.create-note textarea {
+    width: 100%;
+    border: none;
+    padding: 4px;
+    outline: none;
+    font-size: 1.2em;
+    font-family: inherit;
+    resize: none;
+}
+form.create-note button {
+    position: absolute;
+    right: 18px;
+    bottom: -18px;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     outline: none;
 }
@@ -60,5 +95,5 @@ footer {
     height: 2rem;
 }
 footer p {
-    color: #7f9fe4;
+    color: var(--main-color);
 }

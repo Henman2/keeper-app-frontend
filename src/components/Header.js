@@ -1,8 +1,8 @@
-import HighlightRoundedIcon from '@mui/icons-material/HighlightRounded';
+import LockRoundedIcon from '@mui/icons-material/LockRounded';
 const Header = ()=>{
     return (
         <header>
-            <h1><HighlightRoundedIcon /> Secret Keeper</h1>
+            <h1><LockRoundedIcon /> Secret Keeper</h1>
         </header>
     )
 }

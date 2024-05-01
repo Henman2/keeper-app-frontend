@@ -1,7 +1,12 @@
 import NotesList from "../components/NotesList";
+import CreateNote from "../components/CreateNote";
 const HomePage = () => {
     return (
-        <NotesList />
+        <>
+            <CreateNote />
+            <NotesList />
+        </>
+
     );
 }
 export default HomePage;

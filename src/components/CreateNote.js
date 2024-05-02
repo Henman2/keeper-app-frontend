@@ -8,7 +8,8 @@ const CreateNote = ({onAdd}) => {
     const titleInputRef = useRef(null);
     const handleInputChange = (event) => {
         const {name, value} = event.target;
-        setInputValues({...inputValues, [name]: value})
+        // setInputValues({...inputValues, [name]: value})
+        setInputValues(prevNote => ({...prevNote, [name]: value}))
     }
     const handleSubmit = (event) => {
         onAdd(inputValues);
@@ -29,7 +30,7 @@ const CreateNote = ({onAdd}) => {
         <form className="create-note">
             {isExpanded && <input onChange={handleInputChange} ref={titleInputRef} name="title" value={inputValues.title} placeholder="Title"/>}
             <textarea onChange={handleInputChange} onClick={expand} name="content" value={inputValues.content} placeholder="Take a note..." rows={isExpanded ? 3 : 1} />
-            <Zoom  in={isExpanded} style={{ transitionDelay: isExpanded ? '500ms' : '0ms' }}><button onClick={handleSubmit}><AddIcon/></button></Zoom>
+            <Zoom  in={isExpanded} style={{ transitionDelay: isExpanded ? '300ms' : '0ms' }}><button onClick={handleSubmit}><AddIcon/></button></Zoom>
         </form>
     )
 }

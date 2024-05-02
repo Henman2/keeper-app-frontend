@@ -33,6 +33,11 @@ main{
     color: var(--main-color);
     text-align: center;
 }
+.note h3{
+    font-size: 0.8em;
+    color: #618375;
+    padding-bottom: 5px;
+}
 .note p {
     font-size: 1em;
     margin-bottom: 10px;

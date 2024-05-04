@@ -58,6 +58,9 @@ main{
     cursor: pointer;
     outline: none;
 }
+.update-note{
+
+}
 form.create-note {
     position: relative;
     width: 480px;
@@ -90,6 +93,10 @@ form.create-note button {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     outline: none;
+}
+form.create-note .cancelBtn {
+    right: 80px;
+
 }
 /*footer*/
 footer {

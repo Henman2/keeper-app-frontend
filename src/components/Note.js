@@ -1,8 +1,8 @@
 //Note.js
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
-import currentTime from "../shared/currentTime";
-const Note = ({id, title, content, handleDeletion, renderEditForm})=>{
+
+const Note = ({id, title, content, timestamp, handleDeletion, renderEditForm})=>{
     const handleDeleteClick = ()=>{
         handleDeletion(id);
     }
@@ -12,7 +12,7 @@ const Note = ({id, title, content, handleDeletion, renderEditForm})=>{
     return(
         <div className="note">
             <h2>{title}</h2>
-            <h3>Posted: {currentTime()}</h3>
+            <h3>Posted: {timestamp}</h3>
             <p>{content}</p>
             <span>
                 <button onClick={handleDeleteClick}><DeleteRoundedIcon/></button>

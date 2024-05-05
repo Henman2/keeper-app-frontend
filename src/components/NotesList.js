@@ -9,6 +9,7 @@ const NotesList= ({notes, handleDeletion, renderEditForm})=>{
                         id={note.key}
                         title={note.title}
                         content={note.content}
+                        timestamp={note.timestamp}
                         handleDeletion={handleDeletion}
                         renderEditForm={renderEditForm}/>
                 );

@@ -4,6 +4,7 @@ import NotesList from "../components/NotesList";
 import CreateNote from "../components/CreateNote";
 import EditNote from "../components/EditNote";
 import {useState} from "react";
+import currentTime from "../shared/currentTime";
 
 const HomePage = () => {
     //State Variables:
@@ -12,12 +13,14 @@ const HomePage = () => {
     const [editingNote, setEditingNote] = useState(null);
 
     const addNote = (newNote) => {
-        setNotes(prevNotes => [...prevNotes, {...newNote, key: newNoteId}]);
+        const timestamp = currentTime();
+        setNotes(prevNotes => [...prevNotes, {...newNote, key: newNoteId, timestamp}]);
         setNewNoteId(prevId => prevId + 1)
     }
     const updateNote = (id, updatedNote) => {
+        const timestamp = currentTime(); // Get current time
         setNotes(prevNotes => prevNotes.map(note => (
-            note.key === id ? { ...note, ...updatedNote } : note
+            note.key === id ? { ...note, ...updatedNote, timestamp } : note
         )));
         setEditingNote(null);
     }
@@ -28,7 +31,7 @@ const HomePage = () => {
         setEditingNote(null);
     }
     const deleteNote = (id) => {
-        setNotes(prevNotes => prevNotes.filter((note, index) => index !== id));
+        setNotes(prevNotes => prevNotes.filter((note) => note.key !== id));
     }
     return (
         <>{editingNote ? (

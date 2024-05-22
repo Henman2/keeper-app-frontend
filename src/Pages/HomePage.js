@@ -1,28 +1,43 @@
 //HomePage.js
-import initialNotes from "../shared/notelist";
 import NotesList from "../components/NotesList";
 import CreateNote from "../components/CreateNote";
 import EditNote from "../components/EditNote";
-import {useState} from "react";
-import currentTime from "../shared/currentTime";
+import {useState, useEffect} from "react";
+
+
 
 const HomePage = () => {
     //State Variables:
-    const [notes, setNotes] = useState([...initialNotes]);
-    const [newNoteId, setNewNoteId] = useState(initialNotes.length+1);
+    const [notes, setNotes] = useState([]);
     const [editingNote, setEditingNote] = useState(null);
+   
+    
+    const fetchNotes = async () =>{
+        try {
+        const response = await fetch('http://localhost:3800/notes', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include'
+        });
+        if (!response.ok) {
+            throw new Error(`Error fetching notes: ${response.statusText}`);
+        }
+        const noteData = await response.json();
+        console.log(noteData);
+        setNotes(noteData);
+        } catch (error) {
+        console.log("Error fetching notes:", error);
+        }
+    }
+    useEffect(() => {
+        fetchNotes()
+    }, []);
 
-    const addNote = (newNote) => {
-        const timestamp = currentTime();
-        setNotes(prevNotes => [...prevNotes, {...newNote, key: newNoteId, timestamp}]);
-        setNewNoteId(prevId => prevId + 1)
+    const addNote = (newNote) => { 
+       
     }
     const updateNote = (id, updatedNote) => {
-        const timestamp = currentTime(); // Get current time
-        setNotes(prevNotes => prevNotes.map(note => (
-            note.key === id ? { ...note, ...updatedNote, timestamp } : note
-        )));
-        setEditingNote(null);
+        
     }
     const handleEditNote = (id, title, content) => {
         setEditingNote({ id, title, content });

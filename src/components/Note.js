@@ -1,6 +1,6 @@
 //Note.js
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
-import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
+import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
 const Note = ({id, title, content, timestamp, handleDeletion, renderEditForm})=>{
     const handleDeleteClick = ()=>{
@@ -16,7 +16,7 @@ const Note = ({id, title, content, timestamp, handleDeletion, renderEditForm})=>
             <p>{content}</p>
             <span>
                 <button onClick={handleDeleteClick}><DeleteRoundedIcon/></button>
-                <button onClick={handleEditClick}><EditNoteRoundedIcon/></button>
+                <button onClick={handleEditClick}><EditRoundedIcon/></button>
             </span>
 
         </div>

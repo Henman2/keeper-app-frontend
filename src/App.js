@@ -10,9 +10,8 @@ const App = ()=> {
             <Header/>
             <main>
             <Routes>
-                <Route path='/' element={<HomePage/>} />
-            </Routes>
-                
+                <Route path='/' key="home" element={<HomePage/>} />
+            </Routes>   
             </main>
             <Footer/>
         </div>

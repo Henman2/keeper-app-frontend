@@ -10,11 +10,11 @@ const HomePage = () => {
     //State Variables:
     const [notes, setNotes] = useState([]);
     const [editingNote, setEditingNote] = useState(null);
-   
+    const baseURL = process.env.REACT_APP_API_BASE_URL;
     
     const fetchNotes = async () =>{
         try {
-        const response = await fetch('http://localhost:3800/notes', {
+        const response = await fetch(`${baseURL}/notes`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include'

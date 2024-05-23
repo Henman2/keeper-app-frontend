@@ -25,7 +25,7 @@ const HomePage = () => {
                 throw new Error(`Error fetching notes: ${response.statusText}`);
             }
             const noteData = await response.json();
-            console.log(noteData);
+            // console.log(noteData);
             setNotes(noteData);
             } catch (error) {
             console.log("Error fetching notes:", error);
@@ -70,7 +70,6 @@ const HomePage = () => {
             const noteData = await response.json();
             setNotes(prevNotes => prevNotes.map (note => note._id === id ? noteData : note));
             setEditingNote(null);
-
         }
         catch (err) {
             console.log("Error updating note:", err);
@@ -84,8 +83,24 @@ const HomePage = () => {
     const cancelEdit = ()=>{
         setEditingNote(null);
     }
-    const deleteNote = (id) => {
-        setNotes(prevNotes => prevNotes.filter((note) => note.key !== id));
+    const deleteNote = async (id) => {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ noteID: id }),
+        };
+        try{
+            const response = await fetch(`${baseURL}/notes/deletenote`, requestOptions);
+            if (!response.ok) {
+                throw new Error(`Error deleting note: ${response.statusText}`);
+            }
+            setNotes(prevNotes => prevNotes.filter((note) => note._id !== id));
+        }
+        catch(err){
+            console.log("Error deleting note:", err);
+        }
+        
     }
     return (
         <>{editingNote ? (

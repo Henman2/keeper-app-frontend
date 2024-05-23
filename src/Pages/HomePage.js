@@ -55,7 +55,27 @@ const HomePage = () => {
             console.error("Error adding note:", err);
         }
     }
-    const updateNote = (id, updatedNote) => {
+    const updateNote =  async (id, updatedNote) => {
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ noteID: id, ...updatedNote }),
+        };
+        try{
+            const response = await fetch(`${baseURL}/notes/updatenote`, requestOptions);
+            if(!response.ok){
+                throw new Error(`Error updating note: ${response.statusText}`);
+            }
+            const noteData = await response.json();
+            setNotes(prevNotes => prevNotes.map (note => note._id === id ? noteData : note));
+            setEditingNote(null);
+
+        }
+        catch (err) {
+            console.log("Error updating note:", err);
+
+        }
         
     }
     const handleEditNote = (id, title, content) => {

@@ -2,7 +2,8 @@
 import NotesList from "../components/NotesList";
 import CreateNote from "../components/CreateNote";
 import EditNote from "../components/EditNote";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useCallback} from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -11,30 +12,48 @@ const HomePage = () => {
     const [notes, setNotes] = useState([]);
     const [editingNote, setEditingNote] = useState(null);
     const baseURL = process.env.REACT_APP_API_BASE_URL;
-    
-    const fetchNotes = async () =>{
-        try {
-        const response = await fetch(`${baseURL}/notes`, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include'
-        });
-        if (!response.ok) {
-            throw new Error(`Error fetching notes: ${response.statusText}`);
-        }
-        const noteData = await response.json();
-        console.log(noteData);
-        setNotes(noteData);
-        } catch (error) {
-        console.log("Error fetching notes:", error);
-        }
-    }
+    const navigate = useNavigate();
+    const fetchNotes = useCallback(
+        async () =>{
+            try {
+            const response = await fetch(`${baseURL}/notes`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include'
+            });
+            if (!response.ok) {
+                throw new Error(`Error fetching notes: ${response.statusText}`);
+            }
+            const noteData = await response.json();
+            console.log(noteData);
+            setNotes(noteData);
+            } catch (error) {
+            console.log("Error fetching notes:", error);
+            }
+        }, [baseURL]
+    )
     useEffect(() => {
-        fetchNotes()
-    }, []);
+        fetchNotes();
+    }, [fetchNotes]);
 
-    const addNote = (newNote) => { 
-       
+    const addNote = async (newNote) => { 
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify(newNote),
+        };
+        try {
+            const response = await fetch(`${baseURL}/notes/newnote`, requestOptions);
+            if (!response.ok) {
+                throw new Error(`Error adding note: ${response.statusText}`);
+            }
+            const noteData = await response.json();
+            setNotes(prevNotes => [...prevNotes, noteData]);
+            navigate('/', { replace: true }); // Prevent going back to notes/newnote
+        } catch (err) {
+            console.error("Error adding note:", err);
+        }
     }
     const updateNote = (id, updatedNote) => {
         

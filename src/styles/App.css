@@ -6,6 +6,7 @@ header {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     align-content: center;
     text-align: center;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 header h1 {
@@ -16,20 +17,25 @@ header h1 {
 
 /*main content*/
 main{
+    background: #eee url("../shared/images/black-thread-light.png");
     padding: 0 16px;
+    flex-grow: 1; /* Allow the main content to expand */
+    display: flex;
+    
 }
+
 .note{
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 2px 5px #ccc;
-    padding: 10px;
-    width: 260px;
+    padding: 15px 10px;
+    width: 300px;
     margin: 16px;
     float: left;
 }
 .note h2 {
     font-size: 1.2em;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     color: var(--main-color);
     text-align: center;
 }
@@ -37,12 +43,15 @@ main{
     font-size: 0.8em;
     color: #618375;
     padding-bottom: 5px;
+    
 }
 .note p {
     font-size: 1em;
+    line-height: 1.8;
     margin-bottom: 10px;
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-style: italic;
 }
 .note button {
     position: relative;
@@ -100,11 +109,11 @@ form.create-note .cancelBtn {
 }
 /*footer*/
 footer {
-    position: absolute;
     text-align: center;
     bottom: 0;
     width: 100%;
-    height: 2rem;
+    padding:1rem;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 footer p {
     color: var(--main-color);

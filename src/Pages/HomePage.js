@@ -103,7 +103,7 @@ const HomePage = () => {
         
     }
     return (
-        <>{editingNote ? (
+        <div>{editingNote ? (
             <EditNote
                 id={editingNote.id}
                 title={editingNote.title}
@@ -116,7 +116,7 @@ const HomePage = () => {
                 handleDeletion = {deleteNote}
                 renderEditForm={handleEditNote}
         />
-        </>
+        </div>
 
     );
 }

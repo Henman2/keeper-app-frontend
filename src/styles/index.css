@@ -5,10 +5,19 @@
 }
 html {
     font-family: "Montserrat", sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 :root{
     --main-color: #2d6a4f;
 }
 body {
-    background: #eee url("../shared/images/black-thread-light.png");
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgb(233, 231, 231);
 }
+

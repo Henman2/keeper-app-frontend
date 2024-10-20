@@ -17,22 +17,31 @@ header h1 {
 
 /*main content*/
 main{
-    background: #eee url("../shared/images/black-thread-light.png");
+    background: rgba(238, 238, 238, 0.8) url("../shared/images/black-thread-light.png");
     padding: 0 16px;
-    flex-grow: 1; /* Allow the main content to expand */
+    /*flex-grow: 1; Allow the main content to expand */
     display: flex;
-    
 }
+.notes-wrapper{
 
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around; /* Align items from the start */
+     align-items: flex-start; /* Aligns notes at the top, no height stretching */
+    gap:16px;
+    /* height: 100vh; */
+}
 .note{
     background: #fff;
     border-radius: 7px;
     box-shadow: 0 2px 5px #ccc;
     padding: 15px 10px;
     width: 300px;
-    margin: 16px;
-    float: left;
-}
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+     align-items: flex-start; /* Prevent stretching, align content to top */
+}   
 .note h2 {
     font-size: 1.2em;
     margin-bottom: 8px;
@@ -66,6 +75,10 @@ main{
     height: 36px;
     cursor: pointer;
     outline: none;
+}
+.note h2, .note h3, .note p {
+    margin: 0; /* Remove unnecessary spacing */
+    padding-bottom: 10px; /* Space between items */
 }
 .update-note{
 
@@ -114,6 +127,7 @@ footer {
     width: 100%;
     padding:1rem;
     flex-shrink: 0; /* Prevent shrinking */
+    background-color: #fff;
 }
 footer p {
     color: var(--main-color);

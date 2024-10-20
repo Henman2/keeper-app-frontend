@@ -17,7 +17,7 @@ const NotesList= ({notes, handleDeletion, renderEditForm})=>{
         });
     }, [notes, handleDeletion, renderEditForm]);
 return(
-    <div>
+    <div className="notes-wrapper">
         {memoizedNotes}
     </div>
 )

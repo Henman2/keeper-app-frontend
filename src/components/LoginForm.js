@@ -9,19 +9,20 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import { useState } from 'react';
 
-const LoginForm = ({ isLogin, toggleForm, onSubmit }) => {
-    const [username, setUsername] = useState('');
+const LoginForm = ({ isLogin, toggleForm,  submitInput }) => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = { email, password };
         if (!isLogin) {
-            data.username = username;  
-          data.confirmPassword = confirmPassword; // Include confirmPassword only for registration
+            data.name = name;  
+          data.confirmPassword = confirmPassword; // Include username and confirmPassword only for registration
         }
-        onSubmit(data);
+        submitInput(data);
     }
     return (
         <Grid
@@ -74,8 +75,8 @@ const LoginForm = ({ isLogin, toggleForm, onSubmit }) => {
                         autoComplete='User Name'
                         autoFocus
                         className='login-text-field'
-                        value={username}
-                        onChange ={(e)=> setUsername(e.target.value)}
+                        value={name}
+                        onChange ={(e)=> setName(e.target.value)}
                     />
                     )}
                 <TextField
@@ -140,13 +141,13 @@ const LoginForm = ({ isLogin, toggleForm, onSubmit }) => {
                 </Button>
                 <Grid container>
                 <Grid item xs>
-                    <Link href='#' variant='body2' className='login-link'>
+                    <Link href='' variant='body2' className='login-link'>
                     Forgot password?
                     </Link>
                 </Grid>
                 <Grid item>
                     <Link
-                    href='#'
+                    href=''
                     variant='body2'
                     className='login-link'
                     onClick={toggleForm}

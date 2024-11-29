@@ -29,7 +29,7 @@ const CreateNote = ({onAdd}) => {
     return(
         <form className="create-note">
             {isExpanded && <input onChange={handleInputChange} ref={titleInputRef} name="title" value={inputValues.title} placeholder="Title"/>}
-            <textarea onChange={handleInputChange} onClick={expand} name="content" value={inputValues.content} placeholder="Take a note..." rows={isExpanded ? 3 : 1} />
+            <textarea onChange={handleInputChange} onClick={expand} name="content" value={inputValues.content} placeholder="Take a note..." rows={isExpanded ? 5 : 1} />
             <Zoom  in={isExpanded} style={{ transitionDelay: isExpanded ? '300ms' : '0ms' }}><button onClick={handleSubmit}><AddIcon/></button></Zoom>
         </form>
     )

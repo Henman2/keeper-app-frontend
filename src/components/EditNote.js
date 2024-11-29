@@ -17,7 +17,7 @@ const EditNote = ({ id, title: initialTitle, content: initialContent, handleUpda
     return (
         <form className="create-note">
             <input name="title" type="text" value={title} onChange={e => setTitle(e.target.value)} />
-            <textarea name="content" value={content} onChange={e => setContent(e.target.value)}></textarea>
+            <textarea rows={6} name="content" value={content} onChange={e => setContent(e.target.value)} ></textarea>
             <button type="submit" onClick={handleSubmit}><SaveRoundedIcon /></button>
             <button className="cancelBtn" onClick={handleCancel}><CancelRoundedIcon /></button>
         </form>

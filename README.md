@@ -6,6 +6,22 @@ The frontend of the note app is built using React (with Create React App) and Ma
 It provides the user interface for note management and communicates with the backend to 
 handle CRUD operations.
 
+# Keeper App
+
+This is a description of the project.
+Home page
+
+![Login Page](src/images/login.png)
+
+
+Keeper page
+
+![HomePage or Notes](src/images/allnotes.png)
+
+
+Create Note page
+
+![Create Note](src/images/createnotes.png)
 
 ## Features
 
@@ -36,6 +52,7 @@ The frontend will now be running on http://localhost:3000.
 
     React
     Material UI
+    Masonry-React-CSS
     Cors (for API requests)
     React Router (for routing)
     CSS (for custom styling)
@@ -46,17 +63,18 @@ The frontend will now be running on http://localhost:3000.
 
     User Authentication
     Login:
+    Users must log in with their credentials.
+    Upon successful login, a JWT token is generated and sent to the browser in a secure httpOnly cookie.
+    Since the httpOnly flag is enabled, the cookie is not accessible via JavaScript, enhancing security against XSS attacks.
+    The cookie is automatically included in requests sent to the server, allowing the server to authenticate the user.
 
-    Users must log in with their credentials. Upon successful login, they will receive a JWT token.
-    The token is stored in the browser (typically in localStorage) and sent in the headers of each request to authenticate the user.
     Create a Note:
-
     Once logged in, users can add notes. The notes will be saved in the MongoDB database and displayed on the homepage in a masonry layout.
+
     Edit a Note:
-
     Users can edit their notes. When a note is updated, the changes will be reflected on the frontend.
+    
     Delete a Note:
-
     Users can delete their notes, and they will no longer be displayed in the list.
 
 

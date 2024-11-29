@@ -26,22 +26,21 @@ main {
     flex-grow: 1; /*Allow the main content to expand */
 }
 .notes-wrapper {
-    display:grid;
-     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));/* Adjust the note size and number of columns */
-    gap: 16px;
-    justify-items: center; 
-    padding: 16px; 
+    display: flex;
+    margin-left: -20px; /* gutter size offset */
+    width: auto;
+}
+.note-masonry-gridcol{
+    padding-left: 20px; /* gutter size */
+    background-clip: padding-box;
 }
 .note{
-    background: #fff;
+    background: #d0e9e5;
     border-radius: 7px;
-    box-shadow: 0 2px 5px #ccc;
-    padding: 15px 10px;
-    width: 300px;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Prevent stretching, align content to top */
+    box-sizing: border-box;
+    padding: 10px 10px 30px 10px;
+    /* width: 300px; */
+    margin-bottom: 20px;
 }   
 .note h2 {
     font-size: 1.2em;
@@ -63,20 +62,26 @@ main {
     word-wrap: break-word;
     font-style: italic;
 }
-.note button {
+.note-btn {
     position: relative;
-    float: right;
-    margin-right: 10px;
-    background: var(--main-color);
-    color: #fff;
-    border: none;
-    bottom: -25px;
-    border-radius: 50%;
+    float: right !important;
+    display: flex !important;
+    margin-right: 10px !important;
+    background: var(--main-color) !important; 
+    color: #fff !important;
+    border: none !important;
+    bottom: -25px !important;
+    border-radius: 50% !important;
     width: 36px;
-    height: 36px;
-    cursor: pointer;
-    outline: none;
+    min-width: 36px !important; /* Prevent button resizing */
+    height: 36px !important;
+    cursor: pointer !important;
+    outline: none !important;
 }
+.note-btn:hover {
+    background: #618375 !important;
+}
+
 .note h2, .note h3, .note p {
     margin: 0;
     padding-bottom: 10px; 

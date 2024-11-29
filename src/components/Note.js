@@ -1,6 +1,9 @@
 //Note.js
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import { Card, CardContent, Typography, Button } from '@mui/material';
+
+
 
 const Note = ({id, title, content, timestamp, handleDeletion, renderEditForm})=>{
     const handleDeleteClick = ()=>{
@@ -9,17 +12,20 @@ const Note = ({id, title, content, timestamp, handleDeletion, renderEditForm})=>
     const handleEditClick = ()=>{
         renderEditForm(id, title, content);
     }
-    return(
-        <div className="note">
-            <h2>{title}</h2>
-            <h3>Posted: {timestamp}</h3>
-            <p>{content}</p>
-            <span>
-                <button onClick={handleDeleteClick}><DeleteRoundedIcon/></button>
-                <button onClick={handleEditClick}><EditRoundedIcon/></button>
-            </span>
-
-        </div>
-    )
+    return (
+        <Card key={id} className='note'>
+            <CardContent>
+                <Typography variant='h2'>{title}</Typography>
+                <Typography variant='h3'>Posted: {timestamp}</Typography>
+                <Typography>{content}</Typography>
+            </CardContent>
+            <Button onClick={handleDeleteClick}  className="note-btn">
+                <DeleteRoundedIcon />
+            </Button>
+            <Button onClick={handleEditClick}  className="note-btn">
+                <EditRoundedIcon />
+            </Button>
+        </Card>
+    );
 }
 export default Note;

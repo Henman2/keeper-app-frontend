@@ -4,7 +4,8 @@
 
 The frontend of the note app is built using React (with Create React App) and Material UI. 
 It provides the user interface for note management and communicates with the backend to 
-handle CRUD operations.
+handle CRUD operations. The production version of the app can be accesed at 
+https://keeper-app-frontend-eta.vercel.app/
 
 # Keeper App
 

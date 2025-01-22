@@ -37,7 +37,6 @@ const LoginPage = ({isLogin}) => {
           throw new Error('failed to fetch user data');
         }
         const userdata = await response.json();
-        console.log(userdata);
         if (isLogin) {
           localStorage.setItem('user', JSON.stringify(userdata)); //store userdata
           navigate('/');
